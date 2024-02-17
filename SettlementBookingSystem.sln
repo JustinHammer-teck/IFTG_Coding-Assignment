@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31507.150
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettlementBookingSystem", "SettlementBookingSystem\SettlementBookingSystem.csproj", "{5413FBCF-3A70-48FB-B373-21F5CE1926D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettlementBookingSystem.Application", "SettlementBookingSystem.Application\SettlementBookingSystem.Application.csproj", "{01659326-5083-4D2D-82D0-E545210EEF47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettlementBookingSystem.Application.UnitTests", "SettlementBookingSystem.Application.UnitTests\SettlementBookingSystem.Application.UnitTests.csproj", "{C83FB172-103C-4B69-8CDC-39F795D8D1BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3FC0929A-35E0-48D0-8062-D50061F389D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{83B30405-F42B-422C-B83F-E09747654B96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettlementBookingSystem.Infrastructure", "SettlementBookingSystem.Infrastructure\SettlementBookingSystem.Infrastructure.csproj", "{135C35B4-0636-4241-B865-5B735E8F39FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettlementBookingSystem.Domain", "SettlementBookingSystem.Domain\SettlementBookingSystem.Domain.csproj", "{B5B9B692-3001-4C97-AB38-BACBD22A7B2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5413FBCF-3A70-48FB-B373-21F5CE1926D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5413FBCF-3A70-48FB-B373-21F5CE1926D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5413FBCF-3A70-48FB-B373-21F5CE1926D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5413FBCF-3A70-48FB-B373-21F5CE1926D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01659326-5083-4D2D-82D0-E545210EEF47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01659326-5083-4D2D-82D0-E545210EEF47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01659326-5083-4D2D-82D0-E545210EEF47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01659326-5083-4D2D-82D0-E545210EEF47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83FB172-103C-4B69-8CDC-39F795D8D1BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83FB172-103C-4B69-8CDC-39F795D8D1BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83FB172-103C-4B69-8CDC-39F795D8D1BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83FB172-103C-4B69-8CDC-39F795D8D1BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{135C35B4-0636-4241-B865-5B735E8F39FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{135C35B4-0636-4241-B865-5B735E8F39FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{135C35B4-0636-4241-B865-5B735E8F39FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{135C35B4-0636-4241-B865-5B735E8F39FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5B9B692-3001-4C97-AB38-BACBD22A7B2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5B9B692-3001-4C97-AB38-BACBD22A7B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5B9B692-3001-4C97-AB38-BACBD22A7B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5B9B692-3001-4C97-AB38-BACBD22A7B2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1485320F-B4F3-45BB-B991-8977F7D94A37}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C83FB172-103C-4B69-8CDC-39F795D8D1BF} = {83B30405-F42B-422C-B83F-E09747654B96}
+		{5413FBCF-3A70-48FB-B373-21F5CE1926D8} = {3FC0929A-35E0-48D0-8062-D50061F389D5}
+		{01659326-5083-4D2D-82D0-E545210EEF47} = {3FC0929A-35E0-48D0-8062-D50061F389D5}
+		{135C35B4-0636-4241-B865-5B735E8F39FD} = {3FC0929A-35E0-48D0-8062-D50061F389D5}
+		{B5B9B692-3001-4C97-AB38-BACBD22A7B2D} = {3FC0929A-35E0-48D0-8062-D50061F389D5}
+	EndGlobalSection
+EndGlobal
