@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using SettlementBookingSystem.Application.Common.Interfaces.Repository;
 using SettlementBookingSystem.Infrastructure.Persistence;
+using SettlementBookingSystem.Infrastructure.Repositories;
 
 namespace SettlementBookingSystem.Infrastructure
 {
@@ -12,6 +14,8 @@ namespace SettlementBookingSystem.Infrastructure
                 options.UseInMemoryDatabase("SettlementBooking"));
 
             services.AddEntityFrameworkInMemoryDatabase();
+
+            services.AddScoped<IBookingRepository, BookingRepository>();
             
             return services;
         }

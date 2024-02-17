@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SettlementBookingSystem.Application.Bookings.Commands;
-using SettlementBookingSystem.Application.Bookings.Dtos;
 using System;
 using System.Threading.Tasks;
+using SettlementBookingSystem.Application.Bookings.Commands.CreateBookingCommand;
+using SettlementBookingSystem.Application.Bookings.Models;
 
 namespace SettlementBookingSystem.Controllers
 {
@@ -26,8 +26,8 @@ namespace SettlementBookingSystem.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<BookingDto>> Create([FromBody] CreateBookingCommand command)
         {
-            // var result =  await _mediator.Send(command);
-            return Ok("OK");
+            var result =  await _mediator.Send(command);
+            return Ok(result);
         }
     }
 }

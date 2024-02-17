@@ -1,5 +1,7 @@
 # SettlementBookingTest
 
+## [go down](#my-implementation-plan) to my implementation plan
+
 ## Versions
 
 1. Basic Implementation
@@ -36,3 +38,13 @@ curl --request POST \
 	"name": "John"
 }'
 ```
+## My Implementation Plan
+
+what I did : 
+- restructure the project
+- I add Automapper for fluent mapping from entity to dto, I believe in some cases we should control the mapping on our own
+not only for performance and complex mapping base on project, but for demonstration purpose this is what I got.
+- I add configuration data (Option Pattern) that can be control via BookingSystemOptions
+I use this on my last project which support multi tenancy and can be deploy to 2 region 
+this option pattern give me the control on each instance have different configuration.
+- 

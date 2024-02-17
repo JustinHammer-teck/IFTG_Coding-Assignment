@@ -10,6 +10,7 @@ using SettlementBookingSystem.Application;
 using SettlementBookingSystem.Application.Exceptions;
 using SettlementBookingSystem.ProblemDetails;
 using System;
+using SettlementBookingSystem.Application.Options;
 using SettlementBookingSystem.Infrastructure;
 
 namespace SettlementBookingSystem
@@ -29,6 +30,7 @@ namespace SettlementBookingSystem
             services.AddApplication();
             services.AddInfrastructure();
             
+            services.Configure<BookingSystemOptions>(Configuration.GetSection("BookingSystemOptions"));
             services.AddProblemDetails(options =>
             {
                 options.IncludeExceptionDetails = (ctx, ex) => { return false; };

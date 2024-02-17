@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SettlementBookingSystem.Application.Bookings.Dtos;
+using SettlementBookingSystem.Application.Bookings.Models;
 
-namespace SettlementBookingSystem.Application.Bookings.Commands
+namespace SettlementBookingSystem.Application.Bookings.Commands.CreateBookingCommand
 {
     public class CreateBookingCommand : IRequest<BookingDto>
     {

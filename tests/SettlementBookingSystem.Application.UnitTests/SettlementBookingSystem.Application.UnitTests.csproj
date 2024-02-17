@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\SettlementBookingSystem.Application\SettlementBookingSystem.Application.csproj" />
+    <ProjectReference Include="..\..\src\SettlementBookingSystem.Infrastructure\SettlementBookingSystem.Infrastructure.csproj" />
     <ProjectReference Include="..\SettlementBookingSystem.Application\SettlementBookingSystem.Application.csproj" />
   </ItemGroup>
 

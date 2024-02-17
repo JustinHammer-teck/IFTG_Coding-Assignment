@@ -5,6 +5,10 @@ using SettlementBookingSystem.Application.Exceptions;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Moq;
+using SettlementBookingSystem.Application.Bookings.Commands.CreateBookingCommand;
+using SettlementBookingSystem.Application.Common.Interfaces.Repository;
+using SettlementBookingSystem.Infrastructure.Repositories;
 using Xunit;
 
 namespace SettlementBookingSystem.Application.UnitTests
@@ -20,7 +24,8 @@ namespace SettlementBookingSystem.Application.UnitTests
                 BookingTime = "09:15",
             };
 
-            var handler = new CreateBookingCommandHandler();
+            var mockBookingRepository = new Mock<BookingRepository>();
+            var handler = new CreateBookingCommandHandler(mockBookingRepository.Object);
 
             var result = await handler.Handle(command, CancellationToken.None);
 
@@ -37,7 +42,8 @@ namespace SettlementBookingSystem.Application.UnitTests
                 BookingTime = "00:00",
             };
 
-            var handler = new CreateBookingCommandHandler();
+            var mockBookingRepository = new Mock<BookingRepository>();
+            var handler = new CreateBookingCommandHandler(mockBookingRepository.Object);
 
             Func<Task> act = async () => await handler.Handle(command, CancellationToken.None);
 
@@ -53,7 +59,8 @@ namespace SettlementBookingSystem.Application.UnitTests
                 BookingTime = "09:15",
             };
 
-            var handler = new CreateBookingCommandHandler();
+            var mockBookingRepository = new Mock<BookingRepository>();
+            var handler = new CreateBookingCommandHandler(mockBookingRepository.Object);
 
             Func<Task> act = async () => await handler.Handle(command, CancellationToken.None);
 
