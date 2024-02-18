@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SettlementBookingSystem.Application.Behaviours;
 using System.Linq;
 using System.Reflection;
+using SettlementBookingSystem.Application.Common.Interfaces;
 
 namespace SettlementBookingSystem.Application
 {

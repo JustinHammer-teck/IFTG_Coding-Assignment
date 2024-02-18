@@ -47,4 +47,5 @@ not only for performance and complex mapping base on project, but for demonstrat
 - I add configuration data (Option Pattern) that can be control via BookingSystemOptions
 I use this on my last project which support multi tenancy and can be deploy to 2 region 
 this option pattern give me the control on each instance have different configuration.
-- 
+- Implemented 
+- Add new OutOfWorkingHourException 

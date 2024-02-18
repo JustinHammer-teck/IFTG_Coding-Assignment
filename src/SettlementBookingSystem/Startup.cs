@@ -36,6 +36,7 @@ namespace SettlementBookingSystem
                 options.IncludeExceptionDetails = (ctx, ex) => { return false; };
                 // Configure problem details per exception type here.
                 options.Map<ConflictException>(ex => new ConflictProblemDetails(ex));
+                options.Map<OutOfWorkingHourException>(ex => new BadRequestProblemDetails(ex));
                 options.Map<ValidationException>(ex => new BadRequestProblemDetails(ex));
                 options.Map<AggregateException>(ex =>
                 {

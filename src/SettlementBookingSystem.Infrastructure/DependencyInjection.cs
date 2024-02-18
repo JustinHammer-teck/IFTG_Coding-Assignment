@@ -1,8 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using SettlementBookingSystem.Application.Common.Interfaces.Repository;
+using SettlementBookingSystem.Application.Common.Interfaces;
 using SettlementBookingSystem.Infrastructure.Persistence;
-using SettlementBookingSystem.Infrastructure.Repositories;
 
 namespace SettlementBookingSystem.Infrastructure
 {
@@ -10,13 +9,13 @@ namespace SettlementBookingSystem.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
+            services.AddTransient<IApplicationDbContext, ApplicationDbContext>();
+            
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseInMemoryDatabase("SettlementBooking"));
 
             services.AddEntityFrameworkInMemoryDatabase();
 
-            services.AddScoped<IBookingRepository, BookingRepository>();
-            
             return services;
         }
     }

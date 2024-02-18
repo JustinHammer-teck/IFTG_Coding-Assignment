@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using SettlementBookingSystem.Application.Bookings.Commands.CreateBookingCommand;
-using SettlementBookingSystem.Application.Bookings.Models;
+using SettlementBookingSystem.Application.Bookings.Commands.CreateBooking;
+using SettlementBookingSystem.Application.Bookings.Commands.CreateBooking.Models;
 
 namespace SettlementBookingSystem.Controllers
 {
@@ -26,8 +26,7 @@ namespace SettlementBookingSystem.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<BookingDto>> Create([FromBody] CreateBookingCommand command)
         {
-            var result =  await _mediator.Send(command);
-            return Ok(result);
+            return Ok(await _mediator.Send(command));
         }
     }
 }

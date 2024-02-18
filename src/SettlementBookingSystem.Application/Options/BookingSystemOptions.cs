@@ -6,11 +6,12 @@ namespace SettlementBookingSystem.Application.Options
     {
         public int SettlementSlot { get; set; }
         public WorkingHour WorkingHour { get; set; }
+        public int BookingInterval { get; set; }
     }
 
     public class WorkingHour
     {
-        public DateTime From { get; set; }
-        public DateTime To { get; set; }
+        public string From { get; set; }
+        public string To { get; set; }
     }
 }
