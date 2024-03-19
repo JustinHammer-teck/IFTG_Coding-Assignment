@@ -3,6 +3,10 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+# Nix direnv ignore
+*.direnv
+.envrc
+
 # User-specific files
 *.rsuser
 *.suo
