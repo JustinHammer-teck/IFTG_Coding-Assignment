@@ -7,10 +7,10 @@
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.17" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SettlementBookingSystem.Application\SettlementBookingSystem.Application.csproj" />
       <ProjectReference Include="..\SettlementBookingSystem.Domain\SettlementBookingSystem.Domain.csproj" />
     </ItemGroup>
 

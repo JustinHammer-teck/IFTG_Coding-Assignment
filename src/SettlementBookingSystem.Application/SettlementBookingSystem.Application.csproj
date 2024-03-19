@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SettlementBookingSystem.Domain\SettlementBookingSystem.Domain.csproj" />
+    <ProjectReference Include="..\SettlementBookingSystem.Infrastructure\SettlementBookingSystem.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

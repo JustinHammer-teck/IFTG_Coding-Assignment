@@ -6,27 +6,31 @@ using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Options;
 using SettlementBookingSystem.Application.Bookings.Commands.CreateBooking.Models;
-using SettlementBookingSystem.Application.Common.Interfaces;
 using SettlementBookingSystem.Application.Exceptions;
 using SettlementBookingSystem.Application.Options;
 using SettlementBookingSystem.Domain.Entities;
+using SettlementBookingSystem.Domain.Events;
+using SettlementBookingSystem.Infrastructure.Persistence;
 
 namespace SettlementBookingSystem.Application.Bookings.Commands.CreateBooking
 {
     public class CreateBookingCommandHandler : IRequestHandler<CreateBookingCommand, BookingDto>
     {
         private readonly BookingSystemOptions _bookingSystemOptions;
-        private readonly IApplicationDbContext _dbContext;
+        private readonly ApplicationDbContext _dbContext;
         private readonly IMapper _mapper;
+        private readonly IMediator _publisher;
 
         public CreateBookingCommandHandler(
             IOptions<BookingSystemOptions> bookingSystemOptions,
-            IApplicationDbContext dbContext,
-            IMapper mapper)
+            ApplicationDbContext dbContext,
+            IMapper mapper,
+            IMediator publisher)
         {
             _bookingSystemOptions = bookingSystemOptions.Value;
             _dbContext = dbContext;
             _mapper = mapper;
+            _publisher = publisher;
         }
 
         public async Task<BookingDto> Handle(CreateBookingCommand request, CancellationToken cancellationToken)
@@ -38,11 +42,26 @@ namespace SettlementBookingSystem.Application.Bookings.Commands.CreateBooking
 
             var booking = Booking.Create(request.Name, request.BookingTime);
 
-            _dbContext.Bookings.Add(booking);
+            await using var transaction = await _dbContext.Database.BeginTransactionAsync(cancellationToken);
 
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            try
+            {
+                _dbContext.Bookings.Add(booking);
 
-            return _mapper.Map<BookingDto>(booking);
+                await _dbContext.SaveChangesAsync(cancellationToken);
+
+                await _publisher.Publish(new CreateBookingEvent(booking), cancellationToken);
+
+                await transaction.CommitAsync(cancellationToken);
+                
+                return _mapper.Map<BookingDto>(booking);
+            }
+            catch (Exception e)
+            {
+                await transaction.RollbackAsync(cancellationToken);
+
+                throw new Exception("Unable to commit transaction", e);
+            }
         }
 
         private void CheckForWorkingHour(TimeSpan bookingTime)
